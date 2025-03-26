@@ -1,0 +1,4 @@
+C:\Users\lupse\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/lupse/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe -G Ninja -S "E:\SDA\Laborator\Interfete TAD (proiecte C++) si teste\TAD Multime\Proiect C++\Multime (cu rel)" -B "E:\SDA\Laborator\Interfete TAD (proiecte C++) si teste\TAD Multime\Proiect C++\Multime (cu rel)\cmake-build-debug"
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: E:/SDA/Laborator/Interfete TAD (proiecte C++) si teste/TAD Multime/Proiect C++/Multime (cu rel)/cmake-build-debug
