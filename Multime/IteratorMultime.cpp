@@ -27,7 +27,6 @@ TElem IteratorMultime::element() const {
 	if (valid()) {
 		return this->current->data;
 	}
-	// If not valid, throw an exception or return an error value
 	throw std::out_of_range("Iterator is not valid.");
 }
 
