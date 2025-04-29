@@ -1,0 +1,3 @@
+C:/Users/lupse/CLionProjects/SDA/Colectie (cu rel)/cmake-build-debug/CMakeFiles/Colectie__cu_rel_.dir
+C:/Users/lupse/CLionProjects/SDA/Colectie (cu rel)/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/lupse/CLionProjects/SDA/Colectie (cu rel)/cmake-build-debug/CMakeFiles/rebuild_cache.dir
