@@ -62,6 +62,7 @@ public:
 		// destructorul colectiei
 		~Colectie();
 
+	    int eliminaToateAparitiile(TElem elem);
 
 };
 

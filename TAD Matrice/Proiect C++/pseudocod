@@ -1,0 +1,16 @@
+Subalgoritm urmator(iterator : ↑IteratorMatrice)
+    { Avansează iteratorul la următoarea coloană
+     pre: iterator este de tipul iterator}
+    [iterator].coloana_curenta ← [iterator].coloana_curenta + 1
+SfSubalgoritm
+
+Functia element(iterator : ↑IteratorMatrice) : TElem
+    {pre: iterator este de tipul iterator
+     post: TElem de pe pozitia i si coloana curenta}
+    Daca nu valid(iterator) atunci
+        @ Arunca exceptie: iterator invalid
+    SfDaca
+
+    element ← matrice.element(iterator.linie, iterator.coloana_curenta)
+    element ← element
+SfFunctia

@@ -59,4 +59,20 @@ void testAll() { //apelam fiecare functie sa vedem daca exista
 	}
 	assert((vverif[3]==10) &&(vverif[2]==7)&&(vverif[1]==5)&&(vverif[0]==-3));
 
+	Multime m2;
+	assert(m2.diferențaMaxMin() == -1);
+
+	m2.adauga(4);
+	assert(m2.diferențaMaxMin() == 0);
+
+	m2.adauga(9);
+	m2.adauga(-2);
+	assert(m2.diferențaMaxMin() == 11);
+
+	m2.sterge(9);
+	assert(m2.diferențaMaxMin() == 6);
+
+	m2.sterge(4);
+	m2.sterge(-2);
+	assert(m2.diferențaMaxMin() == -1);
 }

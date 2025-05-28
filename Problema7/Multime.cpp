@@ -2,11 +2,12 @@
 #include <stdexcept>
 #include "IteratorMultime.h"
 #define CAPACITATE_INITIALA 10
-
+#include <stack>
 bool rel(TElem a, TElem b) {
     return a < b;
 }
 
+//Theta(capacitate)
 Multime::Multime() {
     capacitate = CAPACITATE_INITIALA;
     noduri = new Nod[capacitate];
@@ -18,6 +19,7 @@ Multime::Multime() {
     noduri[capacitate - 1].st = -1;
 }
 
+//Theta(capacitate)
 void Multime::resize() {
     int newCap = capacitate * 2;
     Nod* newNoduri = new Nod[newCap];
@@ -32,6 +34,7 @@ void Multime::resize() {
     capacitate = newCap;
 }
 
+//Theta(1)
 int Multime::creeazaNod(TElem e) {
     if (primLiber == -1)
         resize();
@@ -43,6 +46,9 @@ int Multime::creeazaNod(TElem e) {
     return poz;
 }
 
+//Best Case: Theta(1)
+//Worst Case: Theta(h)
+//Average Case: O(h)
 bool Multime::adauga(TElem e) {
     if (radacina == -1) {
         radacina = creeazaNod(e);
@@ -68,6 +74,9 @@ bool Multime::adauga(TElem e) {
     return true;
 }
 
+//Best Case: Theta(1)
+//Worst Case: Theta(h)
+//Best Case: O(h)
 int stergeRec(int curent, TElem e, Nod* noduri, int& primLiber, int& dim, bool& sters, Relatie rel) {
     if (curent == -1) return -1;
 
@@ -75,7 +84,6 @@ int stergeRec(int curent, TElem e, Nod* noduri, int& primLiber, int& dim, bool& 
         sters = true;
         dim--;
 
-        // Handle nodes with at most one child
         if (noduri[curent].st == -1 || noduri[curent].dr == -1) {
             int child = (noduri[curent].st != -1) ? noduri[curent].st : noduri[curent].dr;
             noduri[curent].st = primLiber;
@@ -83,7 +91,6 @@ int stergeRec(int curent, TElem e, Nod* noduri, int& primLiber, int& dim, bool& 
             return child;
         }
 
-        // Handle nodes with two children
         int succ = noduri[curent].dr;
         while (noduri[succ].st != -1) succ = noduri[succ].st;
         noduri[curent].e = noduri[succ].e;
@@ -99,12 +106,18 @@ int stergeRec(int curent, TElem e, Nod* noduri, int& primLiber, int& dim, bool& 
     return curent;
 }
 
+//Best Case: Theta(1)
+//Worst Case: Theta(h)
+//Best Case: O(h)
 bool Multime::sterge(TElem e) {
     bool sters = false;
     radacina = stergeRec(radacina, e, noduri, primLiber, dimensiune, sters, rel);
     return sters;
 }
 
+//Best Case: Theta(1)
+//Worst Case: Theta(h)
+//Best Case: O(h)
 bool Multime::cauta(TElem elem) const {
     int curent = radacina;
     while (curent != -1) {
@@ -118,16 +131,51 @@ bool Multime::cauta(TElem elem) const {
     return false;
 }
 
+//Theta(1)
 int Multime::dim() const {
     return dimensiune;
 }
 
+//Theta(1)
 bool Multime::vida() const {
     return dimensiune == 0;
 }
+
+//Theta(1)
 IteratorMultime Multime::iterator() const {
     return IteratorMultime(*this);
 }
+
+//Theta(1)
 Multime::~Multime() {
     delete[] noduri;
+}
+
+//Theta(dim)
+int Multime::diferențaMaxMin() const {
+    if (dimensiune == 0)
+        return -1;
+
+    int minVal = noduri[radacina].e;
+    int maxVal = noduri[radacina].e;
+
+    std::stack<int> stack;
+    if (radacina != -1)
+        stack.push(radacina);
+
+    while (!stack.empty()) {
+        int index  = stack.top();
+        stack.pop();
+
+        TElem val = noduri[index].e;
+        if (val < minVal) minVal = val;
+        if (val > maxVal) maxVal = val;
+
+        if (noduri[index].st != -1)
+            stack.push(noduri[index].st);
+        if (noduri[index].dr != -1)
+            stack.push(noduri[index].dr);
+    }
+
+    return maxVal - minVal;
 }

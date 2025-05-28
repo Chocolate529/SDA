@@ -1,0 +1,38 @@
+Functia eliminaToateAparitiile(c : ↑Colectie, elem : TElement) : Intreg
+  { Elimină toate aparițiile lui elem din colecție și returnează numărul eliminărilor
+    Pre:c este de tipul Colectie
+        elem este de tipul TElement
+    Post: numarul de aparitii}
+
+  p : Intreg ← c.prim
+  eliminari : Intreg ← 0
+
+  CatTimp p != -1 executa
+    Daca c.noduri[p].element = elem atunci
+      deSters : Intreg ← p
+      p ← c.noduri[p].urm
+
+      Daca deSters = c.prim atunci
+        c.prim ← c.noduri[deSters].urm
+      altfel
+        c.noduri[c.noduri[deSters].prec].urm ← c.noduri[deSters].urm
+      SfDaca
+
+      Daca deSters = c.ultim atunci
+        c.ultim ← c.noduri[deSters].prec
+      altfel
+        Daca c.noduri[deSters].urm != -1 atunci
+          c.noduri[c.noduri[deSters].urm].prec ← c.noduri[deSters].prec
+        SfDaca
+      SfDaca
+
+      dealoca(c, deSters)
+      c.lungime ← c.lungime - 1
+      eliminari ← eliminari + 1
+    altfel
+      p ← c.noduri[p].urm
+    SfDaca
+  SfCatTimp
+
+  eliminaToateAparitiile ← eliminari
+SfFunctia

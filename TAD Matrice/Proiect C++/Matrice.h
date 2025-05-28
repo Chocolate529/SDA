@@ -2,7 +2,7 @@
 
 typedef int TElem;
 
-
+class IteratorMatrice;
 #define NULL_TELEMENT 0
 struct Triplet {
 	int linie;
@@ -46,11 +46,27 @@ public:
 	// modificare element de pe o linie si o coloana si returnarea vechii valori
 	// se arunca exceptie daca (i,j) nu e o pozitie valida in Matrice
 	TElem modifica(int i, int j, TElem e);
+	IteratorMatrice iterator(int linie) const;
 
 };
 
 
+class IteratorMatrice {
+	friend class Matrice;
 
+private:
+	const Matrice& matrice;
+	int linie;
+	int coloana_curenta;
+
+	IteratorMatrice(const Matrice& m, int linie);
+
+public:
+	void prim();               // se poziționează pe prima coloană
+	void urmator();           // trece la următoarea coloană
+	bool valid() const;       // verifică dacă iteratorul e valid
+	TElem element() const;    // returnează elementul de pe linie, coloană
+};
 
 
 

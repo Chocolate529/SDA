@@ -34,5 +34,8 @@ public:
 	int dim() const;
 	bool vida() const;
 	IteratorMultime iterator() const;
+	// returnează diferența dintre valoarea maximă și cea minimă (presupunem valori întregi)
+	// dacă mulțimea este vidă, se returnează -1
+	int diferențaMaxMin() const;
 	~Multime();
 };

@@ -9,4 +9,5 @@ using namespace std;
 int main() {
 	testAllExtins();
 	testAll();
+	std::cout<<"Mere";
 }

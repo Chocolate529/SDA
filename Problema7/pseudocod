@@ -1,0 +1,40 @@
+Functia diferentaMaxMin(m : ↑Multime) : Intreg
+    { Returnează diferența dintre valoarea maximă și cea minimă din arbore
+    pre: m sa fie o multime
+    post: numar intreg}
+
+    Daca m.dimensiune = 0 atunci
+        diferentaMaxMin ← -1
+        Returneaza
+    SfDaca
+
+    minVal ← m.noduri[m.radacina].e
+    maxVal ← m.noduri[m.radacina].e
+
+    stack : Stiva de Intreg ← vida
+
+    Daca m.radacina ≠ -1 atunci
+        stack.push(m.radacina)
+    SfDaca
+
+    CatTimp stack ≠ vida executa
+        idx ← stack.pop()
+        val ← m.noduri[idx].e
+
+        Daca val < minVal atunci
+            minVal ← val
+        SfDaca
+        Daca val > maxVal atunci
+            maxVal ← val
+        SfDaca
+
+        Daca m.noduri[idx].st ≠ -1 atunci
+            stack.push(m.noduri[idx].st)
+        SfDaca
+        Daca m.noduri[idx].dr ≠ -1 atunci
+            stack.push(m.noduri[idx].dr)
+        SfDaca
+    SfCatTimp
+
+    diferentaMaxMin ← maxVal - minVal
+SfFunctia

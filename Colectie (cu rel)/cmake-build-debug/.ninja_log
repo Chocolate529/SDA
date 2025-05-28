@@ -1,0 +1,12 @@
+# ninja log v6
+19	283	7677075700290105	CMakeFiles/Colectie__cu_rel_.dir/Teste_(cu_relatie)/TestScurt.cpp.obj	bcc9341391dc337b
+47	308	7677075700563630	CMakeFiles/Colectie__cu_rel_.dir/IteratorColectie.cpp.obj	4647a245e820b76e
+27	842	7677075700370338	CMakeFiles/Colectie__cu_rel_.dir/App.cpp.obj	64241f9cc132254a
+36	864	7677075700462835	CMakeFiles/Colectie__cu_rel_.dir/Colectie.cpp.obj	fbab118247f2648e
+10	877	7677075700192075	CMakeFiles/Colectie__cu_rel_.dir/Teste_(cu_relatie)/TestExtins.cpp.obj	1dc8edf7dbf356af
+877	1323	7677075708872072	Colectie__cu_rel_.exe	47d0a78feca8e975
+14	715	7677075991626292	CMakeFiles/Colectie__cu_rel_.dir/App.cpp.obj	64241f9cc132254a
+727	919	7677075998762351	Colectie__cu_rel_.exe	47d0a78feca8e975
+30	231	7677140893404742	CMakeFiles/Colectie__cu_rel_.dir/IteratorColectie.cpp.obj	4647a245e820b76e
+20	767	7677140893306782	CMakeFiles/Colectie__cu_rel_.dir/Colectie.cpp.obj	fbab118247f2648e
+767	993	7677140900779358	Colectie__cu_rel_.exe	47d0a78feca8e975

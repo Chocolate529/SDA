@@ -33,4 +33,12 @@ void testAll() {
 	ic.prim();
 	assert(ic.valid() == true);
 
+	// 🔍 Test pentru eliminaToateAparitiile
+	c.adauga(6);
+	c.adauga(6);
+	assert(c.nrAparitii(6) == 3);
+
+	int sterse = c.eliminaToateAparitiile(6);
+	assert(sterse == 3);
+	assert(c.nrAparitii(6) == 0);
 }
